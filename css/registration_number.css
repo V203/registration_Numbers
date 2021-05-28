@@ -1,0 +1,33 @@
+html{
+    background-color: cornsilk;
+}
+ body{
+    background-color: rgba(0, 255, 255, 0.455);
+    width: 80%;
+    height: 88%;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: ridge;
+    border-radius: 9px 9px 9px 9px;
+
+}
+
+
+
+.center{
+    display: inline;
+    
+ margin-left: auto;   
+ margin-right: auto;
+ border-style: solid;
+ border-color: blueviolet;
+ width: fit-content;
+ height: auto;
+ 
+}
+button_show{
+    margin-left: auto;   
+ margin-right: auto;
+ width: fit-content;
+ height: auto;
+}
