@@ -12,22 +12,27 @@ html{
 
 }
 
+.regLbl{
+    font-family:Haettenschweiler, 'Arial Narrow Bold', sans-serif   ;    
+    position: relative;
+    display: inline-block;
+}
 
 
 .center{
-    display: inline;
+    display: flex;
+    flex-flow: row;
     
  margin-left: auto;   
  margin-right: auto;
  border-style: solid;
  border-color: blueviolet;
- width: fit-content;
- height: auto;
+
  
 }
 button_show{
     margin-left: auto;   
  margin-right: auto;
- width: fit-content;
- height: auto;
+ 
+ 
 }
