@@ -18,9 +18,9 @@ function RgNm(){
         return Object.keys(plateCW)
     }
     function setPlates(par_){
-        if(par_ === undefined){
-            plateAll[par_]=0
-        }
+       
+            plateAll[par_]=par_
+        
 
     }
 

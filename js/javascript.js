@@ -8,8 +8,11 @@ const input_ = document.querySelector(".inputField");
 const show = document.querySelector(".show");
 const selection = document.querySelector(".selection")
 
+var RgNm_ = RgNm()
+
 buttonAdd.addEventListener("click",function(){
-    alert(selection.value)
+    RgNm_.setPlates("CA 955-565")
+    alert( RgNm_.getAll())
     
 })
 
@@ -23,7 +26,6 @@ buttonClear.addEventListener("click",function(){
     location.reload()
 
 })
-
 
 
 
