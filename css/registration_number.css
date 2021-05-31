@@ -36,3 +36,11 @@ button_show{
  
  
 }
+.thePlates{
+    width: 145px;
+    height: 45px;
+    border-radius:9px;
+    background-color: rgba(184, 129, 17, 0.962);
+    border-width: 3px;
+    border-color: black;
+}
