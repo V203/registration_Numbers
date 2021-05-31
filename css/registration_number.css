@@ -41,6 +41,17 @@ button_show{
     height: 45px;
     border-radius:9px;
     background-color: rgba(184, 129, 17, 0.962);
-    border-width: 3px;
+    border-width: 5px;
+    border-style: solid;
     border-color: black;
+    margin-left: 7px;
+    margin-right: 7px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+
+
+}
+.plate-text{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
 }
