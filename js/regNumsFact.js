@@ -1,35 +1,61 @@
-function RgNm(){
-    let plateAll = {};
-    let plateCA = {};
-    let plateCY = {};
-    let plateCW = {};
+function RgNm() {
+    let plateAll={}
+     
+    let plateCA={};
+    let plateCY={};
+    let plateCW={};
 
-    function getAll(){
+    function getAll() {
         return Object.keys(plateAll);
     }
 
-    function getCA(){
+    
+
+    function getCA() {
         return Object.keys(plateCA)
     }
-    function getCY(){
+    function getCY() {
         return Object.keys(plateCY)
     }
-    function getCW(){
+    function getCW() {
         return Object.keys(plateCW)
     }
-    function setPlates(par_){
+    function setPlates(par) {
+
+        var par_ = par.toUpperCase()
+        if( (par_.startsWith("CA") || par_.startsWith("CY")) || par_.startsWith("CW")){
+         
+
        
-            plateAll[par_]=par_
+      
+       if (plateCA[par_]===undefined && par_.startsWith("CA")) {
+        plateCA[par_]=0
+        }
+        else if(plateCY[par_]===undefined && par_.startsWith("CY")) {
+            plateCY[par_]=0
+        }
+        else if (plateCW[par_]===undefined && par_.startsWith("CW")) {
+            plateCW[par_]=0
+        }
+
+    }
+    else{
+        return "This is an error message"
+    }
         
 
     }
+    function clearError(par){
+        par = ""
+    }
 
 
-    return{
+    return {
         getAll,
         getCA,
         getCY,
         getCW,
-        setPlates
+        setPlates,
+        clearError
     }
 }

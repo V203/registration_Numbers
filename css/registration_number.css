@@ -55,3 +55,14 @@ button_show{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     
 }
+
+.Lengths{
+    width: 300px;
+    height: 65px;
+    border-style: solid;
+    border-color: blueviolet;
+}
+
+.error_out{
+    color: brown;
+}
