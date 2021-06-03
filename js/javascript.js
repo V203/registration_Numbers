@@ -1,7 +1,7 @@
 // alert("we good")
 
 
-var buttonAdd  = document.querySelector(".buttonAdd");
+var buttonAdd = document.querySelector(".buttonAdd");
 var buttonShowAll = document.querySelector(".buttonShowAll");
 var buttonClear = document.querySelector(".buttonClear")
 var input_ = document.querySelector(".inputField");
@@ -16,26 +16,28 @@ var all_out = document.querySelector(".all_out")
 
 var RgNm_ = RgNm()
 
-buttonAdd.addEventListener("click",function(){
+buttonAdd.addEventListener("click", function () {
     // RgNm_.setPlates(input_.value)
     // error_out.innerHTML= 
-    RgNm_.setPlates(input_.value) !== undefined ? setTimeout(()=>{error_out.innerHTML =""},3000)+" "+(error_out.innerHTML = RgNm_.setPlates(input_.value)) :"";
-     
+    RgNm_.setPlates(input_.value) !== undefined ? setTimeout(() => { error_out.innerHTML = "" }, 3000) + " " + (error_out.innerHTML = RgNm_.setPlates(input_.value)) : "";
+
     // var newDiv =document.createElement("div")
-     cw_out.innerHTML =  RgNm_.getCW()
-    ca_out.innerHTML = RgNm_.getCA()
-    cy_out.innerHTML = RgNm_.getCY()
+
+    
+    cw_out.innerHTML = RgNm_.getCW() || ""
+    ca_out.innerHTML = RgNm_.getCA() || ""
+    cy_out.innerHTML = RgNm_.getCY() || ""
     //  newDiv.appendChild(newText)
     // document.body.insertBefore(newDiv,error_out)
-    
-})
-
-buttonShowAll.addEventListener("click",function(){
-all_out.innerHTML = RgNm_.getAll()
 
 })
 
-buttonClear.addEventListener("click",function(){
+buttonShowAll.addEventListener("click", function () {
+    all_out.innerHTML = RgNm_.getCA()
+
+})
+
+buttonClear.addEventListener("click", function () {
     localStorage.clear()
     location.reload()
 

@@ -18,11 +18,18 @@ describe("Setting and getting the values",function(){
 
     })
 
-    it("The test should check if the getCW would return ",function(){
+    it("The test should return an error message if user inputs invalid characters",function(){
         let RgNm_ = RgNm()
        
-        assert.equal("Please type in", RgNm_.setPlates("CW 321-323"))
+        assert.equal("You have entered an invalid reg number, enter eg: CA 127-323 or CY 127-323.", RgNm_.setPlates("!@ 321-323"))
 
+    })
+    it("The test should clear the ",function(){
+
+        let RgNm_ = RgNm()
+        RgNm_.setPlates("ca 123")
+        RgNm_.setPlates("ca 321")
+        assert.equal("CA 123",RgNm_.getCA())
     })
 
 
