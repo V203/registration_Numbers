@@ -1,64 +1,59 @@
-function RgNm() {
+function RgNm(stored) {
 
-    var plateAll = {
+    var plateAll = stored ||{
         plateCA: {},
         plateCY: {},
-        plateCW: {},
-        ObjGetCA: function () { return this.plateCA },
-        ObjGetCW: function () { return this.plateCW },
-        ObjGetCY: function () { return this.plateCY }
+        plateCW: {}
+     
 
 
     }
     function getAll() {
 
-        for (const key in plateAll) {
-            return key
-        }
+        return Object.keys(plateAll.plateCA)
 
     }
 
 
 
     function getCA() {
+
+
+        var ca_ = []
         var ca = []
 
-        ca.push(Object.keys(plateAll.ObjGetCA()));
-        return ca.toString()
+        ca = Object.keys(plateAll.plateCA)
+        for (var i = 0; i < ca.length; i++) {
+
+            ca_ = ca[i]
+        }
+        return ca_
 
     }
     function getCY() {
         var cy_ = []
         var cy = []
-        
+
         cy = Object.keys(plateAll.plateCY)
         for (var i = 0; i < cy.length; i++) {
-            if(cy.includes(cy_[i])){
-                return "sdsd"
-            }
-        
-                cy_ = cy[i]
-            
-          
+
+            cy_ = cy[i]
         }
-        var div_ = document.createElement("div")
-            
-           div_.appendChild(document.createTextNode(cy_))
-            div_.className = "thePlates"
-            document.body.insertBefore(div_, show_nowBtn)
         return cy_
+
     }
     function getCW() {
+        var cw_ = []
         var cw = []
 
-
-        for (const i of Object.keys(plateAll.plateCW)) {
-             cw.push(i)
+        cw = Object.keys(plateAll.plateCW)
+        for (var i = 0; i < cw.length; i++) {
+            if (cw ) {
+                cw_ = cw[i]
+        
+            }
         }
-        return cw
-
-
-
+        return cw_
     }
     function setPlates(par) {
         par.replace(/ /g, "").trim()
