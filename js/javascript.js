@@ -33,26 +33,10 @@ buttonAdd.addEventListener("click", function () {
     RgNm_.setPlates(input_.value) !== undefined ? setTimeout(() => { error_out.innerHTML = "" }, 3000) + " " + (error_out.innerHTML = RgNm_.setPlates(input_.value)) : "";
 
 
-    if(RgNm_.getCA()){
-        makePlate(RgNm_.getCA())
     
-    }
-     if(RgNm_.getCW()){
-        makePlate(RgNm_.getCW())
-    } if(RgNm_.getCY()){
-        makePlate(RgNm_.getCY())
-    }
     
 
-    function makePlate (par1){
-    let div_ = document.createElement("div")
-
-    div_.appendChild(document.createTextNode(par1))
-    div_.className = "thePlates"
-    
-    document.body.insertBefore(div_, show_nowBtn)
-
-}
+  
 
 
 
@@ -110,24 +94,18 @@ buttonClear.addEventListener("click", function () {
 })
 show_nowBtn.addEventListener("click", function () {
 
-    // if (RgNm_.getCY()) {
-    //     if (RgNm_.getCY() === RgNm_.getCY()) {
-    //         var div_ = document.createElement("div")
-    //         var txt = document.createTextNode(RgNm_.getCY().toString())
-    //         div_.appendChild(txt)
-    //         document.body.insertBefore(div_, show_nowBtn)
-    //     }
+    var capeTown = RgNm_.getCA()
 
-    // }
+    if(capeTown ){
+         RgNm_.makePlate(RgNm_.getCA())
+          
+      }
+       else if(RgNm_.getCW()){
+          RgNm_.makePlate(RgNm_.getCW())
+      }else if(RgNm_.getCY()){
+         RgNm_.makePlate(RgNm_.getCY())
+      }
 
-
-
-    // if (RgNm_.getCA()) {
-    //     ca_out.innerHTML = RgNm_.getCA()
-    // } if (RgNm_.getCW()) {
-    //     cw_out.innerHTML = RgNm_.getCW()
-
-    // }
 
     
 

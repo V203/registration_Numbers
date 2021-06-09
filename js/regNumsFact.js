@@ -56,10 +56,11 @@ function RgNm(stored) {
         return cw_
     }
     function setPlates(par) {
-        par.replace(/ /g, "").trim()
+        
+        par.replace(/ /g,"").trim()
         if (par.length !== 8) {
 
-            return "You have entered an invalid length of character's"
+            return "You have entered an invalid length of characters."
         }
 
         var par_ = par.toUpperCase().replace(/([A-Z])(\d)/g, "$1 $2").trim()
@@ -88,6 +89,15 @@ function RgNm(stored) {
     function clearError(par) {
         par = ""
     }
+    function makePlate (par1){
+        let div_ = document.createElement("div")
+    
+        div_.appendChild(document.createTextNode(par1))
+        div_.className = "thePlates"
+        
+        document.body.insertBefore(div_, show_nowBtn)
+    
+    }
 
 
     return {
@@ -96,6 +106,7 @@ function RgNm(stored) {
         getCY,
         getCW,
         setPlates,
-        clearError
+        clearError,
+        makePlate
     }
 }
