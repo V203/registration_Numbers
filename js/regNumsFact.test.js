@@ -29,10 +29,6 @@ describe("Setting and getting the values",function(){
         let RgNm_ = RgNm()
         RgNm_.setPlates("ca123433")
         RgNm_.setPlates("ca323441")
-        // RgNm_.setPlates("cy123433")
-        // RgNm_.setPlates("cy323441")
-        // RgNm_.setPlates("cw123433")
-        // RgNm_.setPlates("cw323441")
         assert.equal([ "CA 123433", "CA 323441" ],RgNm_.getAll())
     })
 

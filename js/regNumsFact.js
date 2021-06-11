@@ -1,10 +1,10 @@
 function RgNm(stored) {
 
-    var plateAll = stored ||{
+    var plateAll = stored || {
         plateCA: {},
         plateCY: {},
         plateCW: {}
-     
+
 
 
     }
@@ -13,6 +13,10 @@ function RgNm(stored) {
         return Object.keys(plateAll.plateCA)
 
     }
+    function fetchEverything() {
+        return plateAll
+    }
+
 
 
 
@@ -25,9 +29,9 @@ function RgNm(stored) {
         ca = Object.keys(plateAll.plateCA)
         for (var i = 0; i < ca.length; i++) {
 
-            ca_ = ca[i]
+            ca_.push(ca[i]) 
         }
-        return ca_
+        return ca_.toString()
 
     }
     function getCY() {
@@ -39,7 +43,7 @@ function RgNm(stored) {
 
             cy_ = cy[i]
         }
-        return cy_
+        return cy_.toString()
 
     }
     function getCW() {
@@ -48,16 +52,16 @@ function RgNm(stored) {
 
         cw = Object.keys(plateAll.plateCW)
         for (var i = 0; i < cw.length; i++) {
-            if (cw ) {
+            if (cw) {
                 cw_ = cw[i]
-        
+
             }
         }
-        return cw_
+        return cw_.toString()
     }
     function setPlates(par) {
-        
-        par.replace(/ /g,"").trim()
+        par.trim()
+        par.replace(/ /g, "")
         if (par.length !== 8) {
 
             return "You have entered an invalid length of characters."
@@ -89,14 +93,31 @@ function RgNm(stored) {
     function clearError(par) {
         par = ""
     }
-    function makePlate (par1){
+    function makePlate(par1) {
         let div_ = document.createElement("div")
-    
+
         div_.appendChild(document.createTextNode(par1))
         div_.className = "thePlates"
-        
+
         document.body.insertBefore(div_, show_nowBtn)
-    
+
+    }
+    function loopPlates() {
+        var loopPlates_ = [];
+        var lp = []
+        RgNm_.getCA() === typeof object ? loopPlates_.push(Object.keys(RgNm_.getCA())) :undefined;
+        RgNm_.getCW() === typeof object ?  loopPlates_.push(Object.keys(RgNm_.getCW())) :undefined;
+        RgNm_.getCY() === typeof object ?  loopPlates_.push(Object.keys(RgNm_.getCY())) :undefined;
+
+      
+
+
+         lp = loopPlates_
+        for (var i = 0; i < lp.length; i++)
+
+         
+
+        return makePlate(lp[i])
     }
 
 
@@ -107,6 +128,8 @@ function RgNm(stored) {
         getCW,
         setPlates,
         clearError,
-        makePlate
+        makePlate,
+        fetchEverything,
+        loopPlates
     }
 }
