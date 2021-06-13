@@ -19,10 +19,11 @@ var plateAll;
 
 
 
-
-
-
+if (localStorage["store"]) {
+plateAll = JSON.parse(localStorage.getItem("store"))
+}
 var RgNm_ = RgNm(plateAll)
+
 
 
 
@@ -31,20 +32,36 @@ buttonAdd.addEventListener("click", function () {
 
 
     RgNm_.setPlates(input_.value) !== undefined ? setTimeout(() => { error_out.innerHTML = "" }, 3000) + " " + (error_out.innerHTML = RgNm_.setPlates(input_.value)) : "";
+
+
+
+    RgNm_.setPlates(input_.value) !== undefined ? setTimeout(() => { error_out.innerHTML = "" }, 3000) + " " + (error_out.innerHTML = RgNm_.setPlates(input_.value)) : "";
 })
 
 buttonShowAll.addEventListener("click", function () {
+    if(selection.value === "capeTown" ){
+        all_out.innerHTML =  RgNm_.getCA()
 
-   RgNm_.allArrs()
 
+    }
+    else if (selection.value === "bellville") {
+        all_out.innerHTML = RgNm_.getCY();
+        
+    } else if(selection.value === "worcester") {
+        all_out.innerHTML = RgNm_.getCW();
+        
+    }
+     
 
 })
+localStorage.setItem("store",JSON.stringify(RgNm_.fetchEverything()))
 
 buttonClear.addEventListener("click", function () {
     localStorage.clear()
     location.reload()
 
 })
+
 
 
 

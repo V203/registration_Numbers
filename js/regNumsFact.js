@@ -14,6 +14,10 @@ function RgNm(stored) {
         allTowns.sort()
         return allTowns
     }
+    function fetchEverything() {
+        return plateAll
+    }
+
 
 
 
@@ -26,9 +30,9 @@ function RgNm(stored) {
         ca = Object.keys(plateAll.plateCA)
         for (var i = 0; i < ca.length; i++) {
 
-            ca_ = ca[i]
+            ca_.push(ca[i]) 
         }
-        return ca_
+        return ca_.toString()
 
     }
 
@@ -71,7 +75,7 @@ function RgNm(stored) {
 
             cy_ = cy[i]
         }
-        return cy_
+        return cy_.toString()
 
     }
     function getCW() {
@@ -85,12 +89,11 @@ function RgNm(stored) {
 
             }
         }
-        return cw_
+        return cw_.toString()
     }
-    function setPlates(_par) {
-
-        par = _par.replace(/ /g, "").trim()
-
+    function setPlates(par) {
+        par.trim()
+        par.replace(/ /g, "")
         if (par.length !== 8) {
 
             return "You have entered an invalid length of characters."
@@ -131,13 +134,30 @@ function RgNm(stored) {
         par = ""
     }
     function makePlate(par1) {
-        let div_ = document.createElement("span")
+        let div_ = document.createElement("div")
 
         div_.appendChild(document.createTextNode(par1))
         div_.className = "thePlates"
 
-        document.body.insertBefore(div_, display)
-        // display.innerHTML = div_
+        document.body.insertBefore(div_, show_nowBtn)
+
+    }
+    function loopPlates() {
+        var loopPlates_ = [];
+        var lp = []
+        RgNm_.getCA() === typeof object ? loopPlates_.push(Object.keys(RgNm_.getCA())) :undefined;
+        RgNm_.getCW() === typeof object ?  loopPlates_.push(Object.keys(RgNm_.getCW())) :undefined;
+        RgNm_.getCY() === typeof object ?  loopPlates_.push(Object.keys(RgNm_.getCY())) :undefined;
+
+      
+
+
+         lp = loopPlates_
+        for (var i = 0; i < lp.length; i++)
+
+         
+
+        return makePlate(lp[i])
     }
 
 
@@ -152,6 +172,8 @@ function RgNm(stored) {
         allArrs,
         setPlates,
         clearError,
-        makePlate
+        makePlate,
+        fetchEverything,
+        loopPlates
     }
 }
