@@ -48,7 +48,7 @@ button_show{
     margin-right: 7px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-align: center;
-
+    visibility: visible;
 
 }
 .plate-text{
