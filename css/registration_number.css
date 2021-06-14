@@ -48,6 +48,7 @@ button_show{
     margin-right: 7px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-align: center;
+    
     visibility: visible;
 
 }
@@ -65,4 +66,5 @@ button_show{
 
 .error_out{
     color: brown;
+    min-height: 150px;
 }

@@ -15,14 +15,14 @@ var show_nowBtn = document.querySelector(".show_now")
 var display = document.querySelector(".display")
 
 
-var plateAll;
+var plateAllDom = [];
 
 
 
 if (localStorage["store"]) {
-plateAll = JSON.parse(localStorage.getItem("store"))
+plateAllDom = JSON.parse(localStorage["store"])
 }
-var RgNm_ = RgNm(plateAll)
+var RgNm_ = RgNm(plateAllDom)
 
 
 
@@ -30,31 +30,24 @@ var RgNm_ = RgNm(plateAll)
 
 buttonAdd.addEventListener("click", function () {
 
+    makePlate(input_.value)
+    // RgNm_.regCheck(input_.value) ? "" :setTimeout(()=>{error_out.innerHTML=""},3000)+" "+(error_out.innerHTML= RgNm_.regCheck(input_.value));
+    
 
-    RgNm_.setPlates(input_.value) !== undefined ? setTimeout(() => { error_out.innerHTML = "" }, 3000) + " " + (error_out.innerHTML = RgNm_.setPlates(input_.value)) : "";
-
-
-
-    RgNm_.setPlates(input_.value) !== undefined ? setTimeout(() => { error_out.innerHTML = "" }, 3000) + " " + (error_out.innerHTML = RgNm_.setPlates(input_.value)) : "";
+    localStorage.setItem("store",JSON.stringify(RgNm_.regCheck()));
+   
+    // RgNm_.setPlates(input_.value) !== undefined ? setTimeout(() => { error_out.innerHTML = "" }, 3000) + " " + (error_out.innerHTML = RgNm_.setPlates(input_.value)) : "";
+//    alert(RgNm_.getHolder())
 })
+
+
 
 buttonShowAll.addEventListener("click", function () {
-    if(selection.value === "capeTown" ){
-        all_out.innerHTML =  RgNm_.getCA()
 
-
-    }
-    else if (selection.value === "bellville") {
-        all_out.innerHTML = RgNm_.getCY();
-        
-    } else if(selection.value === "worcester") {
-        all_out.innerHTML = RgNm_.getCW();
-        
-    }
-     
+    alert(RgNm_.getHolder()) 
 
 })
-localStorage.setItem("store",JSON.stringify(RgNm_.fetchEverything()))
+// localStorage.setItem("store",JSON.stringify(RgNm_.fetchEverything()))
 
 buttonClear.addEventListener("click", function () {
     localStorage.clear()
@@ -67,12 +60,20 @@ buttonClear.addEventListener("click", function () {
 
 show_nowBtn.addEventListener("click", function () {
     
-    if (selection === "capeTown") {
-    //    document.body.innerHTML = ""
-    thePlates.classList.remove("visible")
-        RgNm_.getCA()
-
-
-    }
+    
 
 })
+
+
+function makePlate(par1) {
+    RgNm_.regCheck(par1)
+    for(var i =0;i < RgNm_.getRegCheck().length;i++){
+        var div_ = document.createElement("span")
+    div_.innerHTML = RgNm_.getRegCheck()[i]
+    div_.className = "thePlates"
+    
+    }
+    document.body.insertBefore(div_, error_out)
+    
+
+}
