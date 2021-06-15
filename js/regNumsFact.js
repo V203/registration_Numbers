@@ -8,31 +8,35 @@ function RgNm(stored) {
 
 
     }
-    function getAll() {
-        var allTowns = []
-        allTowns.push(Object.keys(plateAll.plateCA), Object.keys(plateAll.plateCY), Object.keys(plateAll.plateCW))
-        allTowns.sort()
-        return allTowns
-    }
+    // function getAll() {
+    //     var allTowns = []
+    //     allTowns.push(Object.keys(plateAll.plateCA), Object.keys(plateAll.plateCY), Object.keys(plateAll.plateCW))
+    //     // console.log(allTowns)
+    //     return allTowns
+    // }
+
+// function getAll(){
+//     return Object.keys(plateAll)
+// }
+
+    // function getCA() {
 
 
+    //     var ca_ = []
+    //     var ca = []
 
-    function getCA() {
+    //     ca = Object.keys(plateAll.plateCA)
+    //     for (var i = 0; i < ca.length; i++) {
 
+    //         ca_ = ca[i]
+    //     }
+    //     return ca_
 
-        var ca_ = []
-        var ca = []
-
-        ca = Object.keys(plateAll.plateCA)
-        for (var i = 0; i < ca.length; i++) {
-
-            ca_ = ca[i]
-        }
-        return ca_
-
-    }
+    // }
 
     function getCAarr() {
+        console.log(plateAll +"dddhdhhdhdhhd")
+
         return Object.keys(plateAll.plateCA)
 
 
@@ -50,62 +54,74 @@ function RgNm(stored) {
     }
     function allArrs() {
         var allArrsOfTown = []
-        getCAarr().length > 0 ? allArrsOfTown.push(getCAarr()) : "";
-        getCYarr().length > 0 ? allArrsOfTown.push(getCYarr()) : "";
-        getCWarr().length > 0 ? allArrsOfTown.push(getCWarr()) : "";
-        allArrsOfTown.toString().split(",")
+
+        // getCAarr().length > 0 ? allArrsOfTown.push(getCAarr()) : "";
+        // getCYarr().length > 0 ? allArrsOfTown.push(getCYarr()) : "";
+        // getCWarr().length > 0 ? allArrsOfTown.push(getCWarr()) : "";
         
-        for (var i of allArrsOfTown) {
-             makePlate(i)
+        for(let i =0;i<getCAarr().length;i++){
+            
+            allArrsOfTown.push(getCAarr()[i])
+
+        }for(let i =0;i<getCYarr().length;i++){
+            allArrsOfTown.push(getCYarr()[i])
+
+        }for(let i =0;i<getCWarr().length;i++){
+            allArrsOfTown.push(getCWarr()[i])
+
         }
-        // return allArrsOfTown;
+        
+      
+       return allArrsOfTown;
 
     }
 
-    function getCY() {
-        var cy_ = []
-        var cy = []
+    // function getCY() {
+    //     var cy_ = []
+    //     var cy = []
 
-        cy = Object.keys(plateAll.plateCY)
-        for (var i = 0; i < cy.length; i++) {
+    //     cy = Object.keys(plateAll.plateCY)
+    //     for (var i = 0; i < cy.length; i++) {
 
-            cy_ = cy[i]
-        }
-        return cy_
+    //         cy_ = cy[i]
+    //     }
+    //     return cy_
 
-    }
-    function getCW() {
-        var cw_ = []
-        var cw = []
+    // }
+    // function getCW() {
+    //     var cw_ = []
+    //     var cw = []
 
-        cw = Object.keys(plateAll.plateCW)
-        for (var i = 0; i < cw.length; i++) {
-            if (cw) {
-                cw_ = cw[i]
+    //     cw = Object.keys(plateAll.plateCW)
+    //     for (var i = 0; i < cw.length; i++) {
+    //         if (cw) {
+    //             cw_ = cw[i]
 
-            }
-        }
-        return cw_
-    }
+    //         }
+    //     }
+    //     return cw_
+    // }
+
+
     function setPlates(_par) {
 
-        par = _par.replace(/ /g, "").trim()
+        par = _par.replace(/ /g,"").trim()
 
         if (par.length !== 8) {
 
             return "You have entered an invalid length of characters."
         }
 
-        par_ = par.toUpperCase().replace(/([A-Z])(\d)/g, "$1 $2").trim()
+       let par_ = par.toUpperCase().replace(/([A-Z])(\d)/g, "$1 $2").trim()
 
         if ((par_.startsWith("CA") || par_.startsWith("CY")) || par_.startsWith("CW")) {
 
             if (plateAll.plateCA[par_] === undefined && par_.startsWith("CA")) {
                 plateAll.plateCA[par_] = 0
+            
 
 
-                return makePlate(par_)
-
+              
             }
             else if (plateAll.plateCA[par_] !== undefined || plateAll.plateCW[par_] !== undefined || plateAll.plateCY[par_] !== undefined) {
                 setTimeout(() => { error_out.innerHTML = "" }, 3000) + " " + (error_out.innerHTML = "Reg entered already exist's")
@@ -113,11 +129,12 @@ function RgNm(stored) {
 
             else if (plateAll.plateCY[par_] === undefined && par_.startsWith("CY")) {
                 plateAll.plateCY[par_] = 0
-                return makePlate(par_)
+                
             }
             else if (plateAll.plateCW[par_] === undefined && par_.startsWith("CW")) {
                 plateAll.plateCW[par_] = 0
-                return makePlate(par_)
+               
+                
             }
 
         }
@@ -130,28 +147,29 @@ function RgNm(stored) {
     function clearError(par) {
         par = ""
     }
-    function makePlate(par1) {
-        let div_ = document.createElement("span")
+    // function makePlate(par1) {
+    //     let div_ = document.createElement("span")
 
-        div_.appendChild(document.createTextNode(par1))
-        div_.className = "thePlates"
+    //     div_.appendChild(document.createTextNode(par1))
+    //     div_.className = "thePlates"
 
-        document.body.insertBefore(div_, display)
-        // display.innerHTML = div_
-    }
+    //     document.body.insertBefore(div_, display)
+    //     // display.innerHTML = div_
+    // }
 
 
     return {
-        getAll,
-        getCA,
-        getCY,
-        getCW,
+        // getAll,
+        // getCA,
+        // getCY,
+        // getCW,
         getCAarr,
         getCYarr,
         getCWarr,
         allArrs,
         setPlates,
         clearError,
-        makePlate
+        makePlate,
+        plateAll
     }
 }
