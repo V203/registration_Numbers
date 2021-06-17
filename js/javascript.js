@@ -28,7 +28,7 @@ buttonAdd.addEventListener("click", function () {
    }else if(!!RgNm_.setPlates(input_.value)){
        
        let str = " successfully added."
-     confirm_out.innerHTML = input_.value.toUpperCase() +str+" "+setTimeout(()=>{confirm_out.innerHTML=""},3000)
+     confirm_out.innerHTML = input_.value.toUpperCase().replace(/ /g,"") +str+" "+setTimeout(()=>{confirm_out.innerHTML=""},3000)
    }
     makePlate(RgNm_.getPlates())
     localStorage.setItem("store",JSON.stringify(RgNm_.getPlates()))

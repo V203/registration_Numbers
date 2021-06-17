@@ -7,20 +7,30 @@ html{
     height: 88%;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 10%;
     border-style: ridge;
     border-radius: 9px 9px 9px 9px;
 
 }
+.head-title{
+    text-align: center;
+    text-shadow: 1px 1px 2px black, 0 0 25px rgb(121, 42, 48), 0 0 5px darkblue;
+    font-family:  Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 
 .regLbl{
     font-family:Haettenschweiler, 'Arial Narrow Bold', sans-serif   ;    
-    position: relative;
+    position: static;
     display: inline-block;
+    margin-left: auto;   
+    margin-right: auto;
 }
 
 .inputField{
-text-transform: uppercase;
-
+/* text-transform: uppercase; */
+/* float: right; */
+height: fit-content;
+display: inline-block;
 }
 .center{
     display: flex;
@@ -28,8 +38,8 @@ text-transform: uppercase;
     
  margin-left: auto;   
  margin-right: auto;
- border-style: solid;
- border-color: blueviolet;
+ 
+ /* border-color: blueviolet; */
 
  
 }
@@ -58,22 +68,55 @@ button_show{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     
 }
+.display{
+    min-height: 30px;
+}
 
-.Lengths{
+/* .Lengths{
     width: 300px;
     height: 65px;
     border-style: solid;
     border-color: blueviolet;
-}
+} */
 
 .error_out{
     color: brown;
-    
+    text-align: center;
     
 }
 
 .confirm_out{
     color: green;
+    text-align: center;
     
-    
+}
+button{
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.textDiv{
+    height: 12px;
+}
+
+._10pxh{
+height: 15px;
+}
+
+
+@media screen and (maxwidth:446px){
+    /* .center{
+        display: flex;
+        flex-flow: column;
+        margin-left: auto;
+        margin-right: auto;
+    } */
+    .spanning{
+        display: flex;
+        flex-flow: column;  
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
