@@ -1,103 +1,98 @@
 
-var buttonAdd = document.querySelector(".buttonAdd");
-var buttonShowAll = document.querySelector(".buttonShowAll");
-var buttonClear = document.querySelector(".buttonClear")
-var input_ = document.querySelector(".inputField");
-var show = document.querySelector(".show");
-var selection = document.querySelector(".selection")
-var thePlates = document.querySelector(".thePlates")
-var ca_out = document.querySelector(".ca_out")
-var cw_out = document.querySelector(".cw_out")
-var cy_out = document.querySelector(".cy_out")
-var error_out = document.querySelector(".error_out")
-var all_out = document.querySelector(".all_out")
-var show_nowBtn = document.querySelector(".show_now")
-var display = document.querySelector(".display")
+let buttonAdd = document.querySelector(".buttonAdd");
+let buttonShowAll = document.querySelector(".buttonShowAll");
+let buttonClear = document.querySelector(".buttonClear");
+let input_ = document.querySelector(".inputField");
+let show = document.querySelector(".show");
+let selection = document.querySelector(".selection");
+let thePlates = document.querySelector(".thePlates");
+let error_out = document.querySelector(".error_out");
+let show_nowBtn = document.querySelector(".show_now");
+let display = document.querySelector(".display");
+let confirm_out = document.querySelector(".confirm_out")
 
-
-var plateAll;
+let plateAll;
 
 
 if(localStorage["store"]){
-plateAll = JSON.parse(localStorage.getItem("store"))
+plateAll = JSON.parse(localStorage.getItem("store"));
 } 
-
-console.log(plateAll)
-
-var RgNm_ = RgNm(plateAll)
-addEventListener("load", e=>{
+let RgNm_ = RgNm(plateAll)
+window.addEventListener("load", e=>{
     makePlate(plateAll)
 })
 
-
 buttonAdd.addEventListener("click", function () {
-
-   
-    RgNm_.setPlates(input_.value) !== undefined ? setTimeout(() => { error_out.innerHTML = "" }, 3000) + " " + (error_out.innerHTML = RgNm_.setPlates(input_.value)) : "";
-    localStorage.setItem("store",JSON.stringify(RgNm_.allArrs()))
-    
-    makePlate(RgNm_.allArrs())
-})
+     if(RgNm_.setPlates(input_.value) ){
+        error_out.innerText = RgNm_.setPlates(input_.value)+" "+setTimeout(()=>{error_out.innerHTML=""},3000)
+   }else if(!!RgNm_.setPlates(input_.value)){
+       
+       let str = " successfully added."
+     confirm_out.innerHTML = input_.value.toUpperCase() +str+" "+setTimeout(()=>{confirm_out.innerHTML=""},3000)
+   }
+    makePlate(RgNm_.getPlates())
+    localStorage.setItem("store",JSON.stringify(RgNm_.getPlates()))
+});
 
 buttonShowAll.addEventListener("click", function () {
-
-   makePlate(RgNm_.allArrs())
-
-
-
-})
+   makePlate(RgNm_.getPlates())
+});
 
 buttonClear.addEventListener("click", function () {
     window.localStorage.clear()
     window.location.reload()
-
-})
+});
 
 
 
 
 show_nowBtn.addEventListener("click", function () {
     
-    if (selection.value === "capeTown") {
-    
-        return eachFun(RgNm_.getCAarr())
+let plateAll_ = RgNm_.getPlates()
+let caArr=[]
+let cwArr =[]
+let cyArr =[]
 
-    }else if (selection.value === "bellville") {
-    
-        return  eachFun(RgNm_.getCYarr())
 
-    } else if (selection.value === "worcester") {
-    
-      return  eachFun(RgNm_.getCWarr())
-
-}
-})
-
-function eachFun(parArr){
-    display.innerHTML=""
-    // for(var i = 0;i< parArr.length;i++){
-        for(let i of parArr){
-        let div= document.createElement("span")
-       div.innerText = i
-       div.className = "thePlates"
-       display.appendChild(div)
-       
-
+for(let i = 0;i< plateAll_.length;i++){
+    if(plateAll_[i].startsWith("CA")){
+        caArr.push(plateAll_[i])
+    }else if(plateAll_[i].startsWith("CW")){
+        cwArr.push(plateAll_[i])
+    }else{
+        cyArr.push(plateAll_[i])
     }
 
 }
 
+    if(selection.value === "capeTown"){
+        display.innerHTML = ""
+        
+        return makePlate(caArr);
+    }else if(selection.value === "bellville"){
+        display.innerHTML = ""
+        return makePlate(cyArr);
+    }else if(selection.value === "worcester"){
+        display.innerHTML = ""
+        return makePlate(cwArr);
+    }else if(selection.value === ""){
+     return error_out.innerHTML = "Select a town by clicking on the selection drop down menu"+""+setTimeout(()=>{error_out.innerHTML=""},3500)
+    }
+})
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+
+
+
 
 function makePlate(par1) {
     display.innerHTML = ""
-    // for(let i = 0;i < par1.length;i++){
-        for(let i of par1){
+    for(let i = 0;i < par1.length;i++){
     let div_ = document.createElement("span")
-    div_.innerHTML = i    
-    
+    div_.innerHTML = par1[i]        
     display.appendChild(div_)
     div_.className = "thePlates"
-}
-    // document.body.insertBefore(div_, display)
-    // display.innerHTML = div_
+    }
 }

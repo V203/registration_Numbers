@@ -18,7 +18,10 @@ html{
     display: inline-block;
 }
 
+.inputField{
+text-transform: uppercase;
 
+}
 .center{
     display: flex;
     flex-flow: row;
@@ -65,4 +68,12 @@ button_show{
 
 .error_out{
     color: brown;
+    
+    
+}
+
+.confirm_out{
+    color: green;
+    
+    
 }
